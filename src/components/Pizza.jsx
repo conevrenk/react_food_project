@@ -1,4 +1,6 @@
 export default function Pizza({ pizzaObj }) {
+
+  if (!pizzaObj.is_active) return null;
   return (
     <div className="col">
       <div className="card">
@@ -10,7 +12,10 @@ export default function Pizza({ pizzaObj }) {
         <div className="card-body">
           <h2 className="card-title">{pizzaObj.title} </h2>
           <p className="card-text">{pizzaObj.description} </p>
-          <span className="badge text-bg-primary">{pizzaObj.price}₺ </span>
+
+
+
+          <span className={`badge ${pizzaObj.price<=200 ? " text-bg-danger" : " text-bg-primary"}`} >{pizzaObj.price}₺ </span>
         </div>
       </div>
     </div>
